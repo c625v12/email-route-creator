@@ -9,7 +9,6 @@ const fetchZone = async (): Promise<ZoneResult> => {
   return data;
 };
 
-// Custom hook to use in components
 export const useZone = () => {
   return useQuery<ZoneResult>({
     queryKey: ['fetchZone'],

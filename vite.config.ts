@@ -47,6 +47,7 @@ export default defineConfig({
         '**/e2e/**',
         'e2e/**/*',
         '.nx/**',
+        '**/src/main.tsx',
       ],
       thresholds: {
         statements: 90,
