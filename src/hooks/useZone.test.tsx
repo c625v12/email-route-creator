@@ -45,25 +45,61 @@ afterEach(() => {
 });
 
 describe('fetchZone', () => {
-  it('should fetch zone data', async () => {
-    mockedAxios.get = vi.fn().mockResolvedValue({
-      data: mockZoneResult, // Your mocked data structure
+  describe('useZone - happy path', () => {
+    it('should fetch zone data', async () => {
+      mockedAxios.get = vi.fn().mockResolvedValue({
+        data: mockZoneResult, // Your mocked data structure
+      });
+
+      const queryClient = new QueryClient();
+
+      const wrapper = ({ children }: { children: React.ReactNode }) => (
+        <QueryClientProvider client={queryClient}>
+          {children}
+        </QueryClientProvider>
+      );
+
+      const { result } = renderHook(() => useZone(), {
+        wrapper,
+      });
+      await waitFor(() => expect(result.current.data).toEqual(mockZoneResult));
+
+      // expect(result).toEqual(mockZoneResult);
+      expect(axios.get).toHaveBeenCalledWith(
+        'http://localhost:3000/api/cloudflare/zone'
+      );
     });
+  });
 
-    const queryClient = new QueryClient();
+  describe('fetchZone - unhappy path', () => {
+    it('should throw an error when API call fails', async () => {
+      const expectedError = '["fetchZone"] data is undefined';
+      mockedAxios.get = vi.fn().mockResolvedValue(new Error());
 
-    const wrapper = ({ children }: { children: React.ReactNode }) => (
-      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-    );
+      const queryClient = new QueryClient();
 
-    const { result } = renderHook(() => useZone(), {
-      wrapper,
+      const wrapper = ({ children }: { children: React.ReactNode }) => (
+        <QueryClientProvider client={queryClient}>
+          {children}
+        </QueryClientProvider>
+      );
+
+      const { result } = renderHook(() => useZone(), {
+        wrapper,
+      });
+
+      await waitFor(() => {
+        // Check if the error is set
+        expect(result.current.error?.message).toEqual(expectedError);
+      });
+      // Log the entire result to inspect it
+      console.log('Result:', result.current.error);
+
+      // Check if the hook is in an error state and the error is correctly captured
+      // expect(result.current.error).toEqual(mockError);
+      expect(mockedAxios.get).toHaveBeenCalledWith(
+        'http://localhost:3000/api/cloudflare/zone'
+      );
     });
-    await waitFor(() => expect(result.current.data).toEqual(mockZoneResult));
-
-    // expect(result).toEqual(mockZoneResult);
-    expect(axios.get).toHaveBeenCalledWith(
-      'http://localhost:3000/api/cloudflare/zone'
-    );
   });
 });
