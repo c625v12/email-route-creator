@@ -1,0 +1,4 @@
+@use '../../scss/partials/mixins';
+.input {
+  @include mixins.grid-container;
+}

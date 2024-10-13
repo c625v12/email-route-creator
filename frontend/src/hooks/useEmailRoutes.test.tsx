@@ -1,5 +1,5 @@
 import { describe, expect, vi } from 'vitest';
-import { UseEmailRoutes } from './UseEmailRoutes';
+import { useEmailRoutes } from './UseEmailRoutes';
 import axios from 'axios';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { renderHook, waitFor } from '@testing-library/react';
@@ -29,7 +29,7 @@ describe('UseEmailRoutes', () => {
         </QueryClientProvider>
       );
 
-      const { result } = renderHook(() => UseEmailRoutes(), {
+      const { result } = renderHook(() => useEmailRoutes(), {
         wrapper,
       });
       await waitFor(() => expect(result.current.data).toEqual(mockedReturn));
@@ -51,7 +51,7 @@ describe('UseEmailRoutes', () => {
         </QueryClientProvider>
       );
 
-      const { result } = renderHook(() => UseEmailRoutes(), {
+      const { result } = renderHook(() => useEmailRoutes(), {
         wrapper,
       });
 

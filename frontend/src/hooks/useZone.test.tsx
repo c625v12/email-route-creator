@@ -1,9 +1,9 @@
 import { describe, expect, vi } from 'vitest';
 import { useZone } from './useZone';
-import { ZoneResult } from 'src/models/zone.dto';
 import axios from 'axios';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { renderHook, waitFor } from '@testing-library/react';
+import { ZoneResult } from '../models/zone.dto';
 
 vi.mock('axios');
 
@@ -93,7 +93,6 @@ describe('fetchZone', () => {
         expect(result.current.error?.message).toEqual(expectedError);
       });
       // Log the entire result to inspect it
-      console.log('Result:', result.current.error);
 
       // Check if the hook is in an error state and the error is correctly captured
       // expect(result.current.error).toEqual(mockError);

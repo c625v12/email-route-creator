@@ -6,7 +6,7 @@ const fetchEmails = async (): Promise<string[]> => {
   return data;
 };
 
-export const UseEmailRoutes = () => {
+export const useEmailRoutes = () => {
   return useQuery<string[]>({
     queryKey: ['fetchEmails'],
     queryFn: fetchEmails,
