@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'primereact/resources/themes/lara-dark-purple/theme.css';
+@import './scss/partials/mixins';
+@import 'primeicons/primeicons.css';
+
+.p-button.p-button-icon-only.p-button-rounded {
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
+}

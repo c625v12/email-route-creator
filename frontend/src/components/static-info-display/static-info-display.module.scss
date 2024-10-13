@@ -1,0 +1,11 @@
+.staticInfo {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.info {
+  @media only screen and (max-width: 639px) {
+    text-align: end;
+  }
+}

@@ -1,0 +1,31 @@
+.submit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  Button {
+    margin-top: 1rem;
+
+    @media only screen and (max-width: 639px) {
+      width: 100%;
+    }
+  }
+}
+
+.p-error {
+  margin-top: 1rem;
+}
+.newEmail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  .emailTitle {
+    margin-bottom: 1rem;
+  }
+}
