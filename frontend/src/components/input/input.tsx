@@ -13,7 +13,6 @@ interface InputProps {
 const Input: React.FC<InputProps> = ({ label, onBlur, onClick }) => {
   const {
     register,
-
     formState: { errors },
   } = useFormContext<FormValues>();
 
@@ -28,6 +27,7 @@ const Input: React.FC<InputProps> = ({ label, onBlur, onClick }) => {
           onBlur={onBlur}
           onClick={onClick}
           invalid={!!errors.input}
+          role="button"
         />
 
         {errors.input && (
