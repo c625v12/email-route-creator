@@ -2,15 +2,14 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { ZoneResult } from '../models/zone.dto';
 
-const fetchZone = async (): Promise<ZoneResult> => {
-  const { data } = await axios.get<ZoneResult>(
-    `http://localhost:3000/api/cloudflare/zone`
-  );
+const fetchZone = async (): Promise<string> => {
+  const { data } = await axios.get<string>(`http://localhost:8080/zone`);
+  console.log(data);
   return data;
 };
 
 export const useZone = () => {
-  return useQuery<ZoneResult>({
+  return useQuery<string>({
     queryKey: ['fetchZone'],
     queryFn: fetchZone,
   });

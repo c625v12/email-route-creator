@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "start:frontend": "nx serve frontend",
     "start": "nx serve",
     "build": "nx build",
     "test": "npx vitest run --coverage"
@@ -36,6 +37,7 @@
     "@nx/vite": "20.0.0",
     "@nx/web": "20.0.0",
     "@nx/workspace": "20.0.0",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.15",
     "@swc-node/register": "~1.9.1",
     "@swc/cli": "~0.3.12",
     "@swc/core": "~1.5.7",
