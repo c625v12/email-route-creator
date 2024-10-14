@@ -12,10 +12,14 @@
       "!{projectRoot}/**/*.cy.[jt]s?(x)",
       "!{projectRoot}/cypress.config.[jt]s"
     ],
-    "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
+    "sharedGlobals": [
+      "{workspaceRoot}/.github/workflows/ci.yml",
+      "{workspaceRoot}/go.work"
+    ]
   },
   "nxCloudId": "67087baaa8759c68e8b091f5",
   "plugins": [
+    "@nx-go/nx-go",
     {
       "plugin": "@nx/vite/plugin",
       "options": {
