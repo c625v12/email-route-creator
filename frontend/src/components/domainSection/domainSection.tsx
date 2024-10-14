@@ -9,7 +9,7 @@ export function DomainSection() {
   const { data, error, isLoading } = useZone();
   const [, setDomain] = useAtom<string>(domainAtom);
 
-  setDomain(data?.name || '');
+  setDomain(data || '');
 
   if (isLoading) return <div>Loading...</div>;
   if (error || !data) return <div>Error: {error?.message}</div>;
@@ -18,7 +18,7 @@ export function DomainSection() {
     <StaticInfoDisplay
       item={{
         title: content.domain,
-        info: data.name,
+        info: data,
       }}
     />
   );

@@ -65,9 +65,7 @@ describe('fetchZone', () => {
       await waitFor(() => expect(result.current.data).toEqual(mockZoneResult));
 
       // expect(result).toEqual(mockZoneResult);
-      expect(axios.get).toHaveBeenCalledWith(
-        'http://localhost:3000/api/cloudflare/zone'
-      );
+      expect(axios.get).toHaveBeenCalledWith('http://localhost:8080/zone');
     });
   });
 
@@ -96,9 +94,7 @@ describe('fetchZone', () => {
 
       // Check if the hook is in an error state and the error is correctly captured
       // expect(result.current.error).toEqual(mockError);
-      expect(mockedAxios.get).toHaveBeenCalledWith(
-        'http://localhost:3000/api/cloudflare/zone'
-      );
+      expect(axios.get).toHaveBeenCalledWith('http://localhost:8080/zone');
     });
   });
 });

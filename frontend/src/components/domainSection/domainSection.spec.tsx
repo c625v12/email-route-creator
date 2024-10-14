@@ -16,9 +16,7 @@ afterEach(() => {
 describe('DomainSection happy', () => {
   beforeEach(() => {
     (useZone as Mock).mockReturnValue({
-      data: {
-        name: 'example.com',
-      },
+      data: 'example.com',
       isLoading: false,
     });
   });

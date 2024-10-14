@@ -24,7 +24,7 @@ const EmailInput: React.FC = () => {
     let formValues = getValues();
     trigger('input');
     if (formValues.input && data && emails) {
-      setValue('input', setCompleteEmail(formValues.input, data.name) || '');
+      setValue('input', setCompleteEmail(formValues.input, data) || '');
       formValues = getValues();
       trigger('input');
     }
@@ -35,7 +35,7 @@ const EmailInput: React.FC = () => {
     | undefined = () => {
     const formValues = getValues();
     if (formValues.input && data) {
-      setValue('input', handleControlClick(formValues.input, data.name) || '');
+      setValue('input', handleControlClick(formValues.input, data) || '');
     }
   };
 
