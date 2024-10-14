@@ -4,7 +4,6 @@ import EmailInput from './EmailInput';
 import { useFormContext, FormProvider, useForm } from 'react-hook-form';
 import { useZone } from '../../hooks/useZone';
 import { emailFormatter, handleControlClick } from '../../util/utility';
-import { emailRoutesAtom } from '../../jotai/atoms';
 import { useAtom } from 'jotai';
 import { useEmailRoutes } from '../../hooks/UseEmailRoutes';
 
