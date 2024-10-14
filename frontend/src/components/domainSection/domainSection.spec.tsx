@@ -69,7 +69,6 @@ describe('DomainSection unhappy - error', () => {
         <DomainSection />
       </QueryClientProvider>
     );
-    screen.debug();
     expect(screen.getByText('Error: error')).toBeInTheDocument();
   });
 });
