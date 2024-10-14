@@ -14,6 +14,7 @@ func main() {
 
 	router := mux.NewRouter()
 	router.HandleFunc("/emails", api.GetEmails).Methods("GET")
+	router.HandleFunc("/zone", api.GetZone).Methods("GET")
 	router.HandleFunc("/destination-emails", func(w http.ResponseWriter, r *http.Request) { api.GetDestinationEmails(w, r, &http.Client{}) }).Methods("GET")
 	router.HandleFunc("/add-route/{email}/{destinationEmail}", func(w http.ResponseWriter, r *http.Request) {
 		api.PostEmailRoute(w, r, &http.Client{})
