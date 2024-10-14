@@ -8,7 +8,7 @@ const postEmailRoutes = async ({
   email: string;
   destination: string;
 }) => {
-  const response = await axios.post(
+  const response = await axios.get(
     `http://localhost:8080/add-route/${email}/${destination}`
   );
   if (response.status !== 200) {

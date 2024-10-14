@@ -24,7 +24,7 @@ afterEach(() => {
 
 describe('usePostEmailRoutes', () => {
   it('should usePostEmailRoutes data', async () => {
-    mockedAxios.post = vi.fn().mockResolvedValue({
+    mockedAxios.get = vi.fn().mockResolvedValue({
       status: 200,
       data: 'mocked post',
     });
@@ -45,13 +45,13 @@ describe('usePostEmailRoutes', () => {
       );
     });
 
-    expect(axios.post).toHaveBeenCalledWith(
+    expect(axios.get).toHaveBeenCalledWith(
       'http://localhost:8080/add-route/test@example.com/destination'
     );
   });
 
   it('should usePostEmailRoutes error', async () => {
-    mockedAxios.post = vi.fn().mockResolvedValue({
+    mockedAxios.get = vi.fn().mockResolvedValue({
       status: 500,
       data: 'mocked post',
     });
@@ -78,7 +78,7 @@ describe('usePostEmailRoutes', () => {
     expect(error).toBeDefined();
 
     expect(error?.message).toBe('Network response was not ok');
-    expect(axios.post).toHaveBeenCalledWith(
+    expect(axios.get).toHaveBeenCalledWith(
       'http://localhost:8080/add-route/test@example.com/destination'
     );
   });
