@@ -42,9 +42,3 @@ func cors(next http.Handler) http.Handler {
 		next.ServeHTTP(w, r)
 	})
 }
-
-func yourHandler(w http.ResponseWriter, r *http.Request) {
-	// Your API logic here
-	w.WriteHeader(http.StatusOK)
-	w.Write([]byte("Hello from Go API!"))
-}
