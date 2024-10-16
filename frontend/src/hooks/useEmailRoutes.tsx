@@ -1,8 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
+import { environment } from '../enviroments/environment';
 
 const fetchEmails = async (): Promise<string[]> => {
-  const { data } = await axios.get<string[]>(`http://localhost:8080/emails`);
+  const apiUrl = environment.apiUrl;
+  const { data } = await axios.get<string[]>(`${apiUrl}/emails`);
   return data;
 };
 

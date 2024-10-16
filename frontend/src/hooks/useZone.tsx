@@ -1,10 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import { ZoneResult } from '../models/zone.dto';
+import { environment } from '../enviroments/environment';
 
 const fetchZone = async (): Promise<string> => {
-  const { data } = await axios.get<string>(`http://localhost:8080/zone`);
-  console.log(data);
+  const apiUrl = environment.apiUrl;
+  const { data } = await axios.get<string>(`${apiUrl}/zone`);
   return data;
 };
 
