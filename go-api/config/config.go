@@ -1,7 +1,10 @@
 package config
 
 import (
+	"log"
 	"os"
+
+	"github.com/joho/godotenv"
 )
 
 type APIConfig struct {
@@ -9,6 +12,13 @@ type APIConfig struct {
 	AuthHeader string
 	ZoneId     string
 	AccountId  string
+}
+
+func init() {
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatalf("Error loading .env file")
+	}
 }
 
 func NewAPIConfig() *APIConfig {

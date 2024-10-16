@@ -1,5 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
+import { environment } from '../enviroments/environment';
 
 const postEmailRoutes = async ({
   email,
@@ -8,8 +9,9 @@ const postEmailRoutes = async ({
   email: string;
   destination: string;
 }) => {
+  const apiUrl = environment.apiUrl;
   const response = await axios.get(
-    `http://localhost:8080/add-route/${email}/${destination}`
+    `${apiUrl}/add-route/${email}/${destination}`
   );
   if (response.status !== 200) {
     throw new Error('Network response was not ok');
